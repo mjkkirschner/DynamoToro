@@ -1,0 +1,2597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>ABB.Robotics.RobotStudio</name>
+  </assembly>
+  <members>
+    <member name="T:ABB.Robotics.RobotStudio.AttributeCollection">
+      <summary>
+            Represents a collection of Attributes attached to a ProjectObject. Attributes are stored as a key/value pair.
+            Keys can be assoicated with a Guid. A key with a Guid can only be removed by a client that knows the Guid.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.Add(System.Guid,System.String,System.Object)">
+      <summary>
+            Adds a protected attribute to this AttributeCollection object.
+            A protected attribute can only be modified or removed if the access id used when creating it is known.
+            </summary>
+      <param name="accessId">The access id.</param>
+      <param name="key">The key to be added.</param>
+      <param name="value">The value to be associated with key. The following types are allowed: <see cref="T:System.Int32" />, <see cref="T:System.Int16" />, <see cref="T:System.Double" />, <see cref="T:System.Boolean" />, <see cref="T:System.String" />, <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" /></param>
+      <exception cref="T:System.ArgumentException">
+            The key is protected by an access id.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.Add(System.String,System.Object)">
+      <summary>
+            Add an attribute to this AttributeCollection object.
+            </summary>
+      <param name="key">The key to be added.</param>
+      <param name="value">The value to be associated with key, see remarks.</param>
+      <exception cref="T:System.ArgumentException">The key is protected by a access id.</exception>
+      <exception cref="T:System.NotSupportedException">The value type is not supported.</exception>
+      <exception cref="T:System.NullReferenceException">An array may not contain values ​​of null.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.ContainsAttributeKey(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.CopyTo(System.Array,System.Int32)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.CopyTo(System.Attribute[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.AttributeCollection.Count">
+      <summary>
+            Gets the number of items in this AttributeCollection object.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.GetAttributeKeys"></member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.GetEnumerator">
+      <summary>
+            Returns an <see cref="T:System.Collections.IEnumerator" /> that iterates over the keys in the <b>AttributeCollection</b>.
+            </summary>
+      <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> for the AttributeCollection.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.HasAttributeAccessId(System.String)">
+      <summary>
+            Check if a key has a accessId connected.
+            </summary>
+      <param name="key">The key to check.</param>
+      <returns>
+            True if key has a accessId.
+            </returns>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.AttributeCollection.IsSynchronized"></member>
+    <member name="P:ABB.Robotics.RobotStudio.AttributeCollection.Item(System.Int32)">
+      <summary>
+            Gets the item at the specified index.
+            </summary>
+      <param name="index">The zero-based index of the item to get.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+            The index value is greater than the number of items in the collection.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.AttributeCollection.Item(System.String)">
+      <summary>
+            Gets the item at the specified index.
+            </summary>
+      <param name="key">The key of the item to get.</param>
+      <exception cref="T:System.ArgumentException">
+            The key value is not in the collection.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.Remove(System.Guid,System.String)">
+      <summary>
+            Removes a protected attribute from this AttributeCollection object.
+            </summary>
+      <param name="accessId">The access id that was specified when the attribute was added.</param>
+      <param name="key">The key of the attribute to be removed.</param>
+      <exception cref="T:System.ArgumentException">
+            An attribute with the specified key has not been added to the collection or
+            the key is protected by an access id.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.Remove(System.String)">
+      <summary>
+            Removes an attribute from this AttributeCollection object.
+            </summary>
+      <param name="key">The key of the attribute to be removed.</param>
+      <exception cref="T:System.ArgumentException">
+            An attribute with the specified key has not been added to the collection or
+            the key is protected by an access id.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.AttributeCollection.SyncRoot"></member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.TryGetValue(System.String,System.Object@)">
+      <summary>Gets the value with the specified key.</summary>
+      <param name="key">The key of the value to get.</param>
+      <param name="value">When this method returns, contains the value associated with the specified key,
+            if the key is found; otherwise, null.</param>
+      <returns>true if the AttributeCollection contains an element with the specified key; otherwise, false.</returns>
+      <exception cref="T:System.ArgumentException">key is a null reference or empty.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.AttributeCollection.TryGetValue``1(System.String,``0@)">
+      <summary>Gets the value with the specified key.</summary>
+      <param name="key">The key of the value to get.</param>
+      <param name="value">When this method returns, contains the value associated with the specified key,
+            if the key is found; otherwise, null.</param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:ABB.Robotics.RobotStudio.AttributeCollection.TryGetValue``1(System.String,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <returns>true if the AttributeCollection contains an element with the specified key; otherwise, false.</returns>
+      <exception cref="T:System.ArgumentException">key is a null reference or empty.</exception>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.AutoSaveAvailableEventArgs">
+      <summary>
+            Provides data for the <see cref="!:Project::AutoSaveAvailable" /> event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.AutoSaveAvailableEventArgs.Cancel"></member>
+    <member name="P:ABB.Robotics.RobotStudio.AutoSaveAvailableEventArgs.FileName"></member>
+    <member name="P:ABB.Robotics.RobotStudio.AutoSaveAvailableEventArgs.LoadAutoSaveData">
+      <summary>
+            Gets or sets if auto saved data load.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.AutoSaveAvailableEventHandler">
+      <summary>
+            Represents the method that will handle the <b>AutoSaveAvailable</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.BuiltinQuantity">
+      <summary>
+            Specifies the quantities which are supported.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.None"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Time"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Length"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Angle"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Velocity"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Acceleration"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.AngularVelocity"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Area"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Volume"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Inertia"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Power"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Energy"></member>
+    <member name="F:ABB.Robotics.RobotStudio.BuiltinQuantity.Mass"></member>
+    <member name="T:ABB.Robotics.RobotStudio.CancelUndoStepType">
+      <summary>Specifies how to cancel and undo step.</summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.CancelUndoStepType.Clear"></member>
+    <member name="F:ABB.Robotics.RobotStudio.CancelUndoStepType.Rollback"></member>
+    <member name="T:ABB.Robotics.RobotStudio.CollectionChangedEventArgs"></member>
+    <member name="M:ABB.Robotics.RobotStudio.CollectionChangedEventArgs.#ctor(System.Int32)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.CollectionChangedEventArgs" />.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.CollectionChangedEventArgs.FirstAffectedIndex"></member>
+    <member name="T:ABB.Robotics.RobotStudio.CollectionChangedEventHandler"></member>
+    <member name="T:ABB.Robotics.RobotStudio.CompressorInfo">
+      <summary>
+            Contains information about a specific compressor (codec)
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.CompressorInfo.#ctor(System.String,System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.CompressorInfo.Description"></member>
+    <member name="P:ABB.Robotics.RobotStudio.CompressorInfo.Name"></member>
+    <member name="M:ABB.Robotics.RobotStudio.CompressorInfo.ToString"></member>
+    <member name="T:ABB.Robotics.RobotStudio.CustomProjectObject">
+      <summary>
+            Base class for custom ProjectObject derived classes.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.CustomProjectObject.RegisterType``1(System.String)">
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:ABB.Robotics.RobotStudio.CustomProjectObject.RegisterType``1(System.String)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.CustomProjectObject.RegisterType(System.String,System.Type)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderBase">
+      <summary>
+            A data recorder collects data from all its souces, and distributes it to its sinks.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderBase.CurrentTime"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderBase.Sinks">
+      <summary>
+            Gets the collection of <see cref="T:ABB.Robotics.RobotStudio.DataRecorderSinkBase" /> objects.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderBase.Sources">
+      <summary>
+            Gets the collection of <see cref="T:ABB.Robotics.RobotStudio.DataRecorderSourceBase" /> objects.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderBase.Start"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderBase.Stop"></member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderBase.Tick"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSignal">
+      <summary>
+            Represents a piece of information that can be recorder by a <see cref="T:ABB.Robotics.RobotStudio.DataRecorderBase">DataRecorder</see></summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignal.DisplayPath">
+      <summary>
+            Returns a user-friendly path.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignal.Equals(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignal.GetParametersFromPath(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignal.GetPathFromParameters(System.String[])"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignal.Id"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignal.Info"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignal.InitialValue"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignal.SourceId"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSignalCollection">
+      <summary>
+            Represents a collection of signals.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Add(ABB.Robotics.RobotStudio.DataRecorderSignal)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Clear"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Contains(ABB.Robotics.RobotStudio.DataRecorderSignal)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Contains(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.CopyTo(ABB.Robotics.RobotStudio.DataRecorderSignal[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Count"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.GetEnumerator"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.IsReadOnly"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Item(System.String)">
+      <summary>
+            Gets the item with the specified signal url.
+            </summary>
+      <param name="signal">The ID of the item to get.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Remove(ABB.Robotics.RobotStudio.DataRecorderSignal)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalCollection.Remove(System.String)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSignalInfo">
+      <summary>
+            Represents information such as data type and quantity of a <see cref="T:ABB.Robotics.RobotStudio.DataRecorderSignal" /></summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.#ctor(ABB.Robotics.RobotStudio.SignalDataType,ABB.Robotics.RobotStudio.SignalInterpolationType,System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.#ctor(ABB.Robotics.RobotStudio.SignalDataType,ABB.Robotics.RobotStudio.SignalInterpolationType,System.String,ABB.Robotics.RobotStudio.BuiltinQuantity,System.Double,System.Double)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.#ctor(ABB.Robotics.RobotStudio.SignalDataType,ABB.Robotics.RobotStudio.SignalInterpolationType,System.String,ABB.Robotics.RobotStudio.BuiltinQuantity,System.Double,System.Double,System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.#ctor(ABB.Robotics.RobotStudio.SignalDataType,ABB.Robotics.RobotStudio.SignalInterpolationType,System.String,System.Double,System.Double)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.#ctor(ABB.Robotics.RobotStudio.SignalDataType,ABB.Robotics.RobotStudio.SignalInterpolationType,System.String,System.Object,System.Object)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.ApproximateMax"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.ApproximateMin"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.DataType"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.Description"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.InterpolationType"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.Quantity"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSignalInfo.Tag"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSinkAddedEventArgs">
+      <summary>
+            Provides data for the DataRecorderSinkAdded event of the collection.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkAddedEventArgs.Sink">
+      <summary>
+            Gets the added sink.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSinkBase">
+      <summary>
+            A data recorder sink will get notified when signals subscribed by the data recorder is updated.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.DataRecorder"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.DisplayName">
+      <summary>
+            Localized display name for the sink
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.Enabled"></member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderSinkBase.EnabledChanged">
+      <summary>
+            Occurs when the Enabled property value has changed.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkBase.Equals(System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.Id">
+      <summary>
+            Unique ID for the sink
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.Signals"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkBase.UIVisible"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSinkBase2"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSinkCollection"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Add(ABB.Robotics.RobotStudio.DataRecorderSinkBase)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Clear"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Contains(ABB.Robotics.RobotStudio.DataRecorderSinkBase)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Contains(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.CopyTo(ABB.Robotics.RobotStudio.DataRecorderSinkBase[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Count"></member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.DataRecorderSinkAdded">
+      <summary>
+            Occurs when a sink has been added to the collection.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.DataRecorderSinkRemoved">
+      <summary>
+            Occurs when a sink has been removed from the collection.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.GetEnumerator"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.IsReadOnly"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Item(System.String)">
+      <summary>
+            Gets the item with the specified ID.
+            </summary>
+      <param name="id">The ID of the item to get.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSinkCollection.Remove(ABB.Robotics.RobotStudio.DataRecorderSinkBase)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSinkRemovedEventArgs">
+      <summary>
+            Provides data for the DataRecorderSinkRemoved event of the collection.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSinkRemovedEventArgs.Sink">
+      <summary>
+            Gets the removed sink.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSourceAddedEventArgs">
+      <summary>
+            Provides data for the DataRecorderSourceAdded event of the collection.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceAddedEventArgs.Source">
+      <summary>
+            Gets the added source.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSourceBase">
+      <summary>
+            A data recorder source provides information to a data recorder.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceBase.DataRecorder"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceBase.DisplayName">
+      <summary>
+            Localized display name for the source
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceBase.Equals(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceBase.GetImageKey(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceBase.GetSignals"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceBase.Id">
+      <summary>
+            Unique ID for the source
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSourceBaseAsync"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSourceCollection"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Add(ABB.Robotics.RobotStudio.DataRecorderSourceBase)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Clear"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Contains(ABB.Robotics.RobotStudio.DataRecorderSourceBase)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Contains(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.CopyTo(ABB.Robotics.RobotStudio.DataRecorderSourceBase[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Count"></member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.DataRecorderSourceAdded">
+      <summary>
+            Occurs when a source has been added to the collection.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.DataRecorderSourceRemoved">
+      <summary>
+            Occurs when a source has been removed from the collection.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.GetEnumerator"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.IsReadOnly"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Item(System.String)">
+      <summary>
+            Gets the item with the specified ID.
+            </summary>
+      <param name="id">The ID of the item to get.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSourceCollection.Remove(ABB.Robotics.RobotStudio.DataRecorderSourceBase)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSourceRemovedEventArgs">
+      <summary>
+            Provides data for the DataRecorderSourceRemoved event of the collection.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSourceRemovedEventArgs.Source">
+      <summary>
+            Gets the removed source.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderSubscribeSignalResult">
+      <summary>
+            Represents information about the reason for success or failure to subscribe to a signal.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderSubscribeSignalResult.#ctor(System.Collections.Generic.IEnumerable{ABB.Robotics.RobotStudio.DataRecorderSignal})"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderSubscribeSignalResult.FailedSubscribedSignals"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DataRecorderTickEventArgs"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DataRecorderTickEventArgs.#ctor(System.Double)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DataRecorderTickEventArgs.Time"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DocumentHistoryEntry">
+      <summary>
+            Additional document properties for a specific point in time.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DocumentHistoryEntry.#ctor(System.String,System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentHistoryEntry.Comments"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentHistoryEntry.Time"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentHistoryEntry.User"></member>
+    <member name="T:ABB.Robotics.RobotStudio.DocumentInfo">
+      <summary>
+            This class gives access to document properties such as title, comments, preview etc.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Author"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Comments"></member>
+    <member name="M:ABB.Robotics.RobotStudio.DocumentInfo.FromFile(System.String)">
+      <summary>
+            Creates a read-only DocumentInfo containing the document properties
+            for a project file
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.DocumentInfo.FromFileAsync(System.String)">
+      <summary>
+            Creates a read-only DocumentInfo containing the document properties
+            for a project file. This method runs asynchronously.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.History"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Preview"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Revision"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Title"></member>
+    <member name="P:ABB.Robotics.RobotStudio.DocumentInfo.Type"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ExceptionEventArgs">
+      <summary>
+            Provides data for the EncoderException event.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionEventArgs.#ctor(System.Exception)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ExceptionEventArgs.Exception">
+      <summary> Gets or sets the thrown exception </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ExceptionEventHandler"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ExceptionLogMessage">
+      <summary>
+            A log message representing an Exception
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionLogMessage.#ctor(System.String,System.Exception)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionLogMessage.#ctor(System.String,System.String,System.Exception)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ExceptionLogMessage.CanActivate"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionLogMessage.Equals(System.Object)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ExceptionLogMessage.Exception"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionLogMessage.GetErrorString">
+      <summary>
+            Returns a string containing the aggregated stack traces and exception messages of the associated exception, and its inner exceptions.
+            This method is intended for debugging purposes.
+            </summary>
+      <returns></returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ExceptionLogMessage.GetHashCode"></member>
+    <member name="T:ABB.Robotics.RobotStudio.HostedAddInBase"></member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.CanActivate(System.String@)">
+      <summary>
+            Called by RobotStudio user interface code, to let you tell the user if your PowerPac can be activated or not.
+            </summary>
+      <param name="reason">If you return false, then specify a reason using this paramter.</param>
+      <returns>True if the PowerPac can be activated, false if not.</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.CanDeactivate(System.String@)">
+      <summary>
+            Called by RobotStudio user interface code, to let you tell the user if your PowerPac can be deactivated or not.
+            </summary>
+      <param name="reason">If you return false, then specify a reason using this paramter.</param>
+      <returns>True if the PowerPac can be activated, false if not.</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.Deactivate">
+      <summary>
+            Deactivates the PowerPac and updates RobotStudios internal state about which PowerPac is active.
+            This method is typically called by RobotStudio, but might also be called by the PowerPac.
+            </summary>
+      <returns>True if <b>OnDeactivate</b> returns true or already deactivated. False if <b>OnDeactivate</b> returns false.</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.InternalActivate">
+      <summary> ABB internal use </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.InternalDeactivate">
+      <summary> ABB internal use </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.HostedAddInBase.InternalDeactivated">
+      <summary> ABB internal use </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.OnActivate">
+      <summary>
+            Called when the user has told RobotStudio to activate your PowerPac.
+            </summary>
+      <returns>True if you have activated the PowerPac, false if you could not activate.</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.OnDeactivate">
+      <summary>
+            Called when the user has told RobotStudio to deactivate your PowerPac.
+            </summary>
+      <returns>True if you have deactivated the PowerPac, false if not. For example you might want to prevent deactivation if there is unsaved data.</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.HostedAddInBase.OnLoad">
+      <summary>
+            Called when the PowerPac DLL is first loaded into memory by RobotStudio.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.IChange"></member>
+    <member name="M:ABB.Robotics.RobotStudio.IChange.Redo"></member>
+    <member name="M:ABB.Robotics.RobotStudio.IChange.Undo"></member>
+    <member name="T:ABB.Robotics.RobotStudio.IHasSystemId"></member>
+    <member name="P:ABB.Robotics.RobotStudio.IHasSystemId.SystemId"></member>
+    <member name="T:ABB.Robotics.RobotStudio.IProgressCallback">
+      <summary>
+            Callback interface for time-consuming operations.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.IProgressCallback.CancelRequested">
+      <summary>
+            Gets a value indicating if the client has requested that the operation should be cancelled.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.IProgressCallback.SetProgress(System.Double)">
+      <summary>
+            Sets the current progress of the operation. The value should be between 0 and 1.
+            </summary>
+      <param name="progress"></param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.IProgressCallback.SetState(System.String)">
+      <summary>
+            Sets a text indicating the current state of the operation.
+            </summary>
+      <param name="text"></param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.IProgressCallback.SupportsCancel">
+      <summary>
+            Sets a value indicating if the operation can be cancelled.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.IProgressCallback.SupportsProgress">
+      <summary>
+            Sets a value indicating if the SetProgress() callback will be called.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ISupportCopy">
+      <summary>
+            This interface is implemented by project objects which are possible to copy.
+            It is typically used when implementing Copy/Paste functionality.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ISupportCopy.Copy">
+      <summary>
+            Creates a copy of the project object.
+            </summary>
+      <returns>The copied project object.</returns>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LicenseHoldType">
+      <summary>
+            Specifies how an acquired license is released
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseHoldType.None"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseHoldType.AllowRelease"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseHoldType.DenyRelease"></member>
+    <member name="T:ABB.Robotics.RobotStudio.LicenseInformation">
+      <summary>
+            Contains information about a license
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.ActivationKey">
+      <summary> The key used when the license was activated.</summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.AvailableLicenses">
+      <summary />
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.ExpirationDate">
+      <summary> License end date</summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.Features">
+      <summary> Feature names </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.IsPermanent">
+      <summary> Permanent or time limited license </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.IsTrial">
+      <summary />
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LicenseInformation.IsValid">
+      <summary> Returns true if the license is valid </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.MaxCheckoutTime">
+      <summary> Maximum allowed checkout time for floating license </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.StartDate">
+      <summary> License start date</summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.State">
+      <summary> Describes the state of the license </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.TotalLicenses">
+      <summary />
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.Type">
+      <summary> License type </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.VendorInfo">
+      <summary> Vendor-defined information </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseInformation.Version">
+      <summary> Product version </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LicenseRuntime"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseRuntime.SLP"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseRuntime.Sentinel"></member>
+    <member name="T:ABB.Robotics.RobotStudio.LicenseType">
+      <summary>
+            Specifies the type of a license
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseType.Standalone"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LicenseType.Floating"></member>
+    <member name="T:ABB.Robotics.RobotStudio.LicenseValidator">
+      <summary>
+            Manages licenses that unlock licensed features
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.AcquireFeatures(System.Collections.Generic.IEnumerable{System.String})">
+      <summary>
+            ABB internal use.
+            </summary>
+      <param name="features"></param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.AcquireLicense(System.String,ABB.Robotics.RobotStudio.LicenseHoldType)">
+      <summary>
+            Acquires a license for executing a program feature
+            </summary>
+      <param name="feature">Feature name</param>
+      <param name="hold">Specifies when the license is released</param>
+      <returns>True on success</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.AcquireLicense(System.String,ABB.Robotics.RobotStudio.LicenseHoldType,System.Boolean,System.Boolean)">
+      <summary>
+            Acquires a license for executing a program feature
+            </summary>
+      <param name="feature">Feature name</param>
+      <param name="allowLocal">Check standalone/commuter license</param>
+      <param name="allowFloating">Check floating license</param>
+      <param name="hold">Specifies when the license is released</param>
+      <returns>True on success</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.AcquireLicense(System.String,System.String,System.Boolean)">
+      <summary>
+            Acquires a license for executing a program feature
+            </summary>
+      <param name="feature">Feature name</param>
+      <param name="version">Feature version</param>
+      <param name="keep">False to release the license immideately</param>
+      <returns>True on success</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.AcquireLicenseToken(System.String)">
+      <summary>
+            Acquire a license that is held until the returned token is disposed
+            </summary>
+      <param name="feature">Feature name</param>
+      <returns></returns>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LicenseValidator.CurrentVersion"></member>
+    <member name="P:ABB.Robotics.RobotStudio.LicenseValidator.Distributor">
+      <summary>
+            ABB Internal use.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.GetInstalledLicenses">
+      <summary>
+            Returns information about all licenses on the client and the server
+            </summary>
+      <returns />
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.GetLastError">
+      <summary>
+            Returns a string describing the cause of failure of the last method call.
+            </summary>
+      <returns>Error string</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.GetLicenseInformation(System.String,ABB.Robotics.RobotStudio.LicenseInformation@)">
+      <summary>
+            Returns information about the license for a specific feature
+            </summary>
+      <param name="feature">Feature name</param>
+      <param name="licenseInformation" />
+      <returns>True if the feature was found</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.GetLicenseInformation(System.String,System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.GetLicenseState(System.String)">
+      <summary>
+            Returns information about the license state for a specific feature
+            </summary>
+      <param name="feature">Feature name</param>
+      <returns>"Valid" if a valid license exists, empty string or eror message otherwise. </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.Initialize">
+      <summary>
+            Initializes the LicenseValidator.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LicenseValidator.Initialized"></member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.InstallLicense(System.Byte[],ABB.Robotics.RobotStudio.LicenseInformation@)">
+      <summary>
+            Installs a license
+            </summary>
+      <param name="licenseKey">License key to install</param>
+      <param name="licenseInformation">Returns information about the installed license</param>
+      <returns>True on success</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.InstallLicense(System.Byte[],ABB.Robotics.RobotStudio.LicenseInformation@,System.Boolean)">
+      <summary>
+            Installs a license
+            </summary>
+      <param name="licenseKey">License key to install</param>
+      <param name="licenseInformation">Returns information about the installed license</param>
+      <param name="checkOverwrite">Causes the method to fail if installing a commercial license would
+            cause valid non-commercial licenses to be removed.</param>
+      <returns>True on success</returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.InstallLicense(System.String,ABB.Robotics.RobotStudio.LicenseInformation@)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.IsValidLicenseAvailable(System.String)">
+      <summary>
+            Checks if there is a valid license available for a feature,
+            but does not perform a full validation.
+            </summary>
+      <param name="feature"></param>
+      <returns></returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.ReleaseLicense(System.String)">
+      <summary>
+            Releases an license acquired with keep = true
+            </summary>
+      <param name="feature">Feature name</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.ReleaseLicense(System.String,System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.LicenseValidator.Runtime"></member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.Shutdown">
+      <summary>
+            Shuts down the LicenseValidator, releasing any held licenses.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LicenseValidator.UninstallLicense(System.String)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.LoadContext"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Logger">
+      <summary>
+            Provides static (Shared in Visual Basic) methods and events to support logging of messages to the user.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.ActivateMessage(ABB.Robotics.RobotStudio.LogMessage)">
+      <summary>
+            Fires the <see cref="E:ABB.Robotics.RobotStudio.Logger.LogMessageActivated" /> event.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.ActivateMessage(System.Object,ABB.Robotics.RobotStudio.LogMessage)">
+      <summary>
+            Fires the <see cref="E:ABB.Robotics.RobotStudio.Logger.LogMessageActivated" /> event and shows more details if the <see cref="P:ABB.Robotics.RobotStudio.LogMessageActivatedEventArgs.Handled" /> is not True and the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> is of base class type.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.AddMessage(ABB.Robotics.RobotStudio.LogMessage)">
+      <summary>
+            Adds a log message to the logger.
+            </summary>
+      <param name="msg">The <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> to add. </param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.AddMessage(ABB.Robotics.RobotStudio.LogMessage,System.Boolean)">
+      <summary>
+            Adds a log message to the logger.
+            </summary>
+      <param name="msg">The <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> to add.</param>
+      <param name="bringToFront">Indicates whether the output window should be brought to the foreground then the message is added.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.AddMessage(System.String)">
+      <summary>
+            Adds an information log message to the logger.
+            </summary>
+      <param name="message">The message to add.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.AddMessage(System.String,System.Boolean)">
+      <summary>
+            Adds an information log message to the logger.
+            </summary>
+      <param name="message">The message to add.</param>
+      <param name="bringToFront">Indicates whether the output window should be brought to the foreground then the message is added.</param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Logger.CategoryCaptions"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.Clear">
+      <summary>
+            Clears the logger. All messages are removed.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.Clear(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.GetMessages">
+      <summary>
+            Returns an array of all log messages contained in the logger.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.GetMessages(System.String)"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Logger.LogMessageActivated"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Logger.LogMessageAdded"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Logger.LogMessageRemoved"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Logger.MessageActivated"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Logger.RemoveMessage(ABB.Robotics.RobotStudio.LogMessage)">
+      <summary>
+            Removes a log message from the logger.
+            </summary>
+      <param name="msg">The <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> to remove. </param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessage">
+      <summary>
+            Represents a log message that can be added to the <see cref="T:ABB.Robotics.RobotStudio.Logger" />.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text.
+            </summary>
+      <param name="text">The message text.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,ABB.Robotics.RobotStudio.LogMessageSeverity)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text and severity.
+            </summary>
+      <param name="text">The message text.</param>
+      <param name="severity">The severity of the message.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text and category.
+            </summary>
+      <param name="text">The message text.</param>
+      <param name="category">The message category.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,System.String,ABB.Robotics.RobotStudio.LogMessageSeverity)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text, category and severity.
+            </summary>
+      <param name="text">The message text.</param>
+      <param name="category">The message category.</param>
+      <param name="severity">The severity of the message.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,System.String,ABB.Robotics.RobotStudio.LogMessageSeverity,System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text, detailed text, category, severity and help topic.
+            </summary>
+      <param name="text">The message text.</param>
+      <param name="category">The message category.</param>
+      <param name="severity">The severity of the message.</param>
+      <param name="helpTopic">The helpt topic.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,System.String,System.String,ABB.Robotics.RobotStudio.LogMessageSeverity)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ABB.Robotics.RobotStudio.LogMessage" /> class with the specified message text, category and severity.
+            </summary>
+      <param name="text">The message text.</param>
+      <param name="category">The message category.</param>
+      <param name="detailedText">A more detaild version of the message text.</param>
+      <param name="severity">The severity of the message.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.#ctor(System.String,System.String,System.String,ABB.Robotics.RobotStudio.LogMessageSeverity,System.String)">
+      <summary>
+            This constructor is for internal use only.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.CanActivate">
+      <summary>
+            Indicates if this message can be double-clicked to display more information.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.Category">
+      <summary>
+            Gets the message category. This property is used to categorize log messages which is related to each other.
+            A PowerPack for example, could define its own category for all messages that it logs.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.DetailedText">
+      <summary>
+            A more detailed description that if set to anything will be shown in a dialog when the message is activated.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.Equals(System.Object)">
+      <summary>
+            Indicates whether the current object is equal to another object
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessage.GetHashCode">
+      <summary>
+            Returns the hash code for this object.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.HelpTopic"></member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.SequenceNumber">
+      <summary>
+            Gets the sequence number of the message severity of the message.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.Severity">
+      <summary>
+            Gets the severity of the message. The severity is specified by the <see cref="T:ABB.Robotics.RobotStudio.LogMessageSeverity" /> enumerator.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.Text">
+      <summary>
+            Gets the message text.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessage.TimeStamp">
+      <summary>
+            Gets the date and time when the message was logged.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageActivatedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Logger.LogMessageActivated" /> event of the <see cref="T:ABB.Robotics.RobotStudio.Logger" />.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.LogMessageActivatedEventArgs.#ctor(ABB.Robotics.RobotStudio.LogMessage)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessageActivatedEventArgs.Handled">
+      <summary>
+            If no event handler sets this to True RobotStudio will handle activation with default implementation.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessageActivatedEventArgs.Message">
+      <summary>
+            The message that has been activated.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageActivatedEventHandler">
+      <summary>
+            Represents a method that will handle activated log messages.
+            </summary>
+      <param name="sender">The object where the event was invoked.</param>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageAddedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Logger.LogMessageAdded" /> event of the <see cref="T:ABB.Robotics.RobotStudio.Logger" />.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessageAddedEventArgs.BringToFront">
+      <summary>
+            Indicates whether the output window should be brought to the foreground then the message is added.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessageAddedEventArgs.Message">
+      <summary>
+            Gets the added message.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageAddedEventHandler">
+      <summary>
+            Represents the method that will handle the <b>LogMessageAdded</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Logger" /> class.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A <see cref="T:ABB.Robotics.RobotStudio.LogMessageAddedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageRemovedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.Logger.LogMessageRemoved" /> event of the <see cref="T:ABB.Robotics.RobotStudio.Logger" />.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.LogMessageRemovedEventArgs.Message">
+      <summary>
+            Gets the removed message.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageRemovedEventHandler">
+      <summary>
+            Represents the method that will handle the <b>LogMessageRemoved</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Logger" /> class.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A <see cref="T:ABB.Robotics.RobotStudio.LogMessageRemovedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.LogMessageSeverity">
+      <summary>
+            Specifies the severity of a log message.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.LogMessageSeverity.Information"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LogMessageSeverity.Warning"></member>
+    <member name="F:ABB.Robotics.RobotStudio.LogMessageSeverity.Error"></member>
+    <member name="T:ABB.Robotics.RobotStudio.MeasuringUnit">
+      <summary>
+            Represents a measuring unit such as meter, millimeter, m/s, rad/s2.
+            A unit belongs to a quantity. For example meter and millimeter belongs
+            to the quantity length, and m/s belongs to the quantity velocity.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.#ctor(System.String,System.Int32,System.Double,System.Double,System.Int32,System.Int32)">
+      <summary>
+            Initializes a new instance of the MeasuringUnit class.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnit.BuiltIn">
+      <summary>
+            Gets a value indicating whether the MeasuringUnit is built in.
+            A builtin measuringunit cannot be removed from a Quantity.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ConvertFromSI(System.Double)">
+      <summary>
+            Converts a value from SI unit to the unit represented by the MeasuringUnit.
+            </summary>
+      <param name="value">The value to convert from SI unit.</param>
+      <returns>
+            The value converted to the unit represented by the MeasuringUnit.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ConvertFromSIToDisplayString(System.Double)">
+      <summary>
+            Converts a value expressed in SI unit to a string that can be displayed in a user interface.
+            the number of decimlas specified by the MeasuringUnit is used.
+            </summary>
+      <param name="value">The SI value to convert to a display string.</param>
+      <returns>
+            The display string.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ConvertFromSIToDisplayString(System.Double,System.Int32)">
+      <summary>
+            Converts a value expressed in SI unit to a string that can be displayed in a user interface.
+            the number of decimals specified by the MeasuringUnit is used.
+            </summary>
+      <param name="value">The SI value to convert to a display string.</param>
+      <param name="numDecimals">The number of decimals to use</param>
+      <returns>
+            The display string.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ConvertToSI(System.Double)">
+      <summary>
+            Converts a value expressed in the unit represented by the MeasuringUnit
+            to a value expressed in the corresponding SI unit.
+            </summary>
+      <param name="value">The value to convert to SI unit.</param>
+      <returns>
+            The value in SI unit.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ConvertToSIFromDisplayString(System.String)">
+      <summary>
+            Converts a value expressed in SI unit to a string that can be displayed in a user interface.
+            The number of decimlas to use can be specified.
+            </summary>
+      <param name="displayString">The SI value to convert to a display string.</param>
+      <returns>
+            The display string.
+            </returns>
+      <exception cref="T:System.ArgumentException">
+            The argument is not valid.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnit.DisplayDecimals">
+      <summary>
+            Gets or sets the number of decimals to display when a numeric value
+            of the measuring unit shall be displayed as text in a user interface.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnit.DisplayName">
+      <summary>
+            Gets the display name of the measuring unit. This name is localized and depends on current locale.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnit.EditDecimals">
+      <summary>
+            Gets or sets the number of decimals to display when a numeric value
+            of the measuring unit is edited.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.IsValidDisplayCharacter(System.Char)">
+      <summary>
+            Returns a value indicating whether the specified character is valid
+            in the string representation the MeasuringUnit.
+            </summary>
+      <param name="displayCharacter">The character to test for validity.</param>
+      <returns>
+            A value indicating whether the specified character is valid.
+            </returns>
+      <exception cref="T:System.ArgumentException">
+            The argument is not valid.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.IsValidDisplayString(System.String)">
+      <summary>
+            Returns a value indicating whether the specified string is a valid string representation of the MeasuringUnit.
+            </summary>
+      <param name="displayString">The character to test for validity.</param>
+      <returns>
+            A value indicating whether specified string is a valid string representation of the MeasuringUnit.
+            </returns>
+      <exception cref="T:System.ArgumentException">
+            The argument is not valid.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnit.Name">
+      <summary>
+            Gets the name of the measuring unit.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnit.ToString"></member>
+    <member name="T:ABB.Robotics.RobotStudio.MeasuringUnitCollection">
+      <summary>
+            Represents a collection of measuring units.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.Add(ABB.Robotics.RobotStudio.MeasuringUnit)">
+      <summary>
+            Adds a MeasuringUnit object to the MeasuringUnitCollection object.
+            </summary>
+      <param name="unit">The unit to be added.</param>
+      <exception cref="T:System.InvalidOperationException">
+            The unit has already been added to the collection.</exception>
+      <exception cref="T:System.ArgumentException">
+            The argument is not valid.
+            </exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.CopyTo(ABB.Robotics.RobotStudio.MeasuringUnit[],System.Int32)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.CopyTo(System.Array,System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnitCollection.Count">
+      <summary>
+            Gets the number of items in the MeasuringUnitCollection object.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.GetEnumerator">
+      <summary>
+            Returns an enumerator that can be used to iterate over the MeasuringUnitCollection object.
+            </summary>
+      <returns>
+            An IEnumerator object that represents the MeasuringUnitCollection object.
+            </returns>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnitCollection.IsSynchronized"></member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnitCollection.Item(System.Int32)">
+      <summary>
+            Gets the item at the specified identifier.
+            </summary>
+      <param name="index">The unique identifier of the item to get.</param>
+      <exception cref="T:System.ArgumentException">
+            The identifier value is not valid.
+            </exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnitCollection.Item(System.String)">
+      <summary>
+            Gets the item with the specified name.
+            </summary>
+      <param name="name">The name the item to get.</param>
+      <exception cref="T:System.ArgumentException">
+            A unit with the specified name does not exists in the collection.
+            </exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.Remove(ABB.Robotics.RobotStudio.MeasuringUnit)">
+      <summary>
+            Remove a MeasuringUnit object from the MeasuringUnitCollection object.
+            </summary>
+      <param name="unit">The unit to be removed.</param>
+      <exception cref="T:System.ArgumentNullException">
+            The argument is not valid or the unit is builtin.
+            </exception>
+      <exception cref="T:System.InvalidOperationException">
+            The unit is built in or has not been added to the collection.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.MeasuringUnitCollection.SyncRoot"></member>
+    <member name="M:ABB.Robotics.RobotStudio.MeasuringUnitCollection.ToArray">
+      <summary>
+            Copies the MeasuringUnitCollection elements to a new array.
+            </summary>
+      <returns>
+            A new array containing elements copied from the MeasuringUnitCollection
+            </returns>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.Options">
+      <summary>
+            Provides static (Shared in Visual Basic) methods, properties and events to store and read user options. Options are grouped in sections.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.#ctor"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Options.Changed">
+      <summary>
+            Fired when a change of options has occured.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.GetDefaultValue(System.String,System.String)">
+      <summary>
+            Gets the default value for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which to get the default value.</param>
+      <param name="key">The key of the option for which to get the default value.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.GetKeys(System.String)">
+      <summary>
+            Gets an array of all option keys in the specified section.
+            </summary>
+      <returns>
+            An array of strings with the names of the option sections.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.GetSections">
+      <summary>
+            Gets an array of all options sections.
+            </summary>
+      <returns>
+            An array of strings with the names of the options sections.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.GetValue(System.String,System.String)">
+      <summary>
+            Gets the value for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option from which to get the value.</param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Options.Language"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.Load(System.String)">
+      <summary>
+            Load options from an XML file.
+            </summary>
+      <param name="fileName">The name of the XML file to load.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.RemoveKey(System.String,System.String)">
+      <summary>
+            Removes an option with the specified key from the specified section.
+            </summary>
+      <param name="section">The options section which contains the option that shall be removed.</param>
+      <param name="key">The key of the option to remove.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.RemoveSection(System.String)">
+      <summary>
+            Removes an entire section. Use with care!
+            </summary>
+      <param name="section"></param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Options.RestartRequired">
+      <summary>
+            Gets or sets a value indicating if the application needs to be restart for changed options to apply.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.Save">
+      <summary>
+            Commits all options to disk.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SaveAs(System.String)">
+      <summary>
+            Save options to an XML file.
+            </summary>
+      <param name="fileName">The name of the XML file where options will be saved.</param>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Options.SectionChanged">
+      <summary> Occurs when the specified section has called. </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Boolean)">
+      <summary>
+            Sets a default boolean value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Double)">
+      <summary>
+            Sets a default double value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Drawing.Color)">
+      <summary>
+            Sets a default <see cref="T:System.Drawing.Color" /> value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Int32)">
+      <summary>
+            Sets a default integer value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Int64)">
+      <summary>
+            Sets a default 64-bit integer value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.Single)">
+      <summary>
+            Sets a default float value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.String)">
+      <summary>
+            Sets a default string value of for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetDefaultValue(System.String,System.String,System.String[])">
+      <summary>
+            Sets a default string array value for an option with the specified key.
+            </summary>
+      <param name="section">The options section which contains the option for which the default value shall be set.</param>
+      <param name="key">The key of the option for which the default value shall be set.</param>
+      <param name="value">The default value of the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetFileName(System.String)">
+      <summary>
+            Sets an alternative filename for the options file.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Boolean)">
+      <summary>
+            Sets a boolean value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The boolean to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Double)">
+      <summary>
+            Sets a double value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The double to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Drawing.Color)">
+      <summary>
+            Sets a <see cref="T:System.Drawing.Color" /> value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The integer to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Int32)">
+      <summary>
+            Sets an integer value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The integer to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Int64)">
+      <summary>
+            Sets an 64-bit integer value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The integer to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.Single)">
+      <summary>
+            Sets a float value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The float to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.String)">
+      <summary>
+            Sets a string value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The string to use as value for the option.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Options.SetValue(System.String,System.String,System.String[])">
+      <summary>
+            Sets an string array value for an option with the specified key.
+            </summary>
+      <param name="section">The options section in which to set a value.</param>
+      <param name="key">The key of the option.</param>
+      <param name="value">The array of strings to use as value for the option.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProgressNotification">
+      <summary>
+            Represents the method that will handle progress notification callbacks.
+            Some time consuming methods provides a progress notification callback, and accepts this delegate as an argument.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.Project">
+      <summary>
+            Base class for all project types. Available project types will differ depending
+            on the product that this API is used within.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.ActiveProject">
+      <summary>
+            Gets the project that is currently active.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ActiveProjectChanged"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.AutoSave"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.AutoSaveAvailable"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.BeforeLoadProjectFile"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.Close">
+      <summary>
+            Closes the project without saving changes.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.Closed"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.DocumentInfo">
+      <summary>
+            Gets an object which contains properties about the project file
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.FileInfo">
+      <summary>
+            Gets information about the file where the project is stored.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.FromFileName(System.String)">
+      <summary>
+            Returns the Project with the given file name if it already is loaded,
+            otherwise null.
+            </summary>
+      <returns>
+            The <see cref="T:ABB.Robotics.RobotStudio.Project" /> if already loaded, otherwise null.&gt;
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.GetObjectFromUniqueId(System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.IsDirty">
+      <summary>
+            Determines if the project has unsaved changes.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.OpenProjects"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ProjectAdded"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ProjectFileLocked"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ProjectObjectRemoved">
+      <summary>
+            Occurs when the <see cref="P:ABB.Robotics.RobotStudio.Project.ContainingProject" /> property has changed to null.
+            This will occur when an <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" /> object is removed from a <see cref="T:ABB.Robotics.RobotStudio.Project" /> project.
+            For example when an object removed from its owning collection.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ProjectRemoved"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.ReadOnly">
+      <summary>
+            Gets or sets a value indicating if the corresponding project file is readonly or in use.
+            If the value is true it is not possible to call Save().
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ReferencedProjectFileNotFound"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.ReferencedProjectFileNotSame"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.Save">
+      <summary>
+            Saves the project to its corresponding project file.
+            </summary>
+      <exception cref="T:System.Exception">
+            The project has not been saved before, so there is no corresponding project file.
+            You must call <see cref="M:ABB.Robotics.RobotStudio.Project.SaveAs(System.String)" /> before you can call save.
+            </exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.SaveAs(System.String)">
+      <summary>
+            Saves the project to a project file on a new location.
+            </summary>
+      <exception cref="T:System.ArgumentException" />
+      <exception cref="T:System.ArgumentNullException" />
+      <exception cref="T:System.IO.DirectoryNotFoundException" />
+      <exception cref="T:System.IO.FileNotFoundException" />
+      <exception cref="T:System.UnauthorizedAccessException" />
+      <exception cref="T:System.IO.IOException" />
+      <exception cref="T:System.ArgumentException">
+            The specified file name is invalid.
+            </exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Project.SaveCopyAs(System.String)">
+      <summary>
+            Saves a copy of the project file.
+            </summary>
+      <exception cref="T:System.ArgumentException">
+            The specified file name is invalid.
+            </exception>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.Saved"></member>
+    <member name="E:ABB.Robotics.RobotStudio.Project.Saving"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.Selection">
+      <summary>
+            This property is obsolete. Use <see cref="P:ABB.Robotics.RobotStudio.Selection.SelectedObjects" /> instead.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Project.UndoContext">
+      <summary>
+            Gets an object giving access to the undo system for the project. which gives information about selected objects and makes it possible to select objects.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectDocument">
+      <summary>
+            Represents a document associated with a project.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocument.#ctor(System.String,ABB.Robotics.RobotStudio.ProjectDocumentType)">
+      <summary>
+            Creates a new <see cref="T:ABB.Robotics.RobotStudio.ProjectDocument" /></summary>
+      <param name="url">Document URL</param>
+      <param name="type">Document type</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocument.#ctor(System.String,ABB.Robotics.RobotStudio.ProjectDocumentType,ABB.Robotics.RobotStudio.ProjectDocumentFlags)">
+      <summary>
+            Creates a new <see cref="T:ABB.Robotics.RobotStudio.ProjectDocument" /></summary>
+      <param name="url">Document URL</param>
+      <param name="type">Document type</param>
+      <param name="flags">Document flags</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocument.#ctor(System.String,System.Byte[])">
+      <summary>
+            Creates a new embedded <see cref="T:ABB.Robotics.RobotStudio.ProjectDocument" /> from binary data.
+            </summary>
+      <param name="data">Document name</param>
+      <param name="name">Document data</param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Available">
+      <summary>
+            Returns true if the document can be accessed.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Comment">
+      <summary>
+            Gets or sets a comment for the document.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Flags">
+      <summary>
+            Gets or sets the document flags.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocument.GetData">
+      <summary>
+            Gets the binary data of an embedded document.
+            </summary>
+      <returns></returns>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.LastChange">
+      <summary>
+            Gets the last time the document was modified.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocument.SetData(System.Byte[])">
+      <summary>
+            Sets the binary data of an embedded document.
+            </summary>
+      <param name="data"></param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Size">
+      <summary>
+            Gets the size (in bytes) of this document.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Type">
+      <summary>
+            Gets the type of document.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocument.Url">
+      <summary>
+            Gets or sets the URL of the document.
+            For a file or folder reference, this is a file system path.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectDocumentCollection"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Add(ABB.Robotics.RobotStudio.ProjectDocument)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Clear"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Contains(ABB.Robotics.RobotStudio.ProjectDocument)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.CopyTo(ABB.Robotics.RobotStudio.ProjectDocument[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Count"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.GetEnumerator"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.IndexOf(ABB.Robotics.RobotStudio.ProjectDocument)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Insert(System.Int32,ABB.Robotics.RobotStudio.ProjectDocument)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocumentCollection.IsReadOnly"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Item(System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Parent"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectDocumentCollection.Remove(ABB.Robotics.RobotStudio.ProjectDocument)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectDocumentFlags">
+      <summary>
+            Specifies values for the <see cref="P:ABB.Robotics.RobotStudio.ProjectDocument.Flags" /> property.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentFlags.None">
+      <summary></summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentFlags.Locked">
+      <summary>
+            Indicates that the document cannot be modified, saved or deleted in the GUI.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentFlags.IncludeInPackAndGo">
+      <summary>
+            Indicates that the file or folder should be included in Pack and Go.
+            The path must be relative to the parent folder of the project file.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentFlags.PackRecursive">
+      <summary>
+            Indicates that subfolders are included in Pack and Go.
+            Valid only for folder references.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectDocumentType">
+      <summary>
+            Specifies the type of a <see cref="T:ABB.Robotics.RobotStudio.ProjectDocument" /></summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentType.FileReference">
+      <summary>
+            The document represents a file on disk.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentType.FolderReference">
+      <summary>
+            The document represents a folder on disk.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectDocumentType.EmbeddedFile">
+      <summary>
+            The document is embedded in the station file.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectFileEventArgs"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectFileEventArgs.FileName"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectFileEventHandler"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectFileLockedEventArgs">
+      <summary>
+            Provides data for the <see cref="!:Project::ProjectFileLocked" /> event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectFileLockedEventArgs.Cancel">
+      <summary>
+            Gets or sets if the operation causing the event shall be canceled.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectFileLockedEventArgs.FileName">
+      <summary>
+            Gets the name of the locked project file.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectFileLockedEventArgs.UserName">
+      <summary>
+            Gets the name of the user who owns the process that has locked the file.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectFileLockedEventHandler">
+      <summary>
+            Represents the method that will handle the <b>ProjectFileLocked</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObject">
+      <summary>
+            Abstract base class for all objects that can be part of a Project. It can not be instantiated.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.Attributes">
+      <summary>
+            Returns a collection of dynamic attributes attached to the object
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.Children">
+      <summary>
+            Enumerates all child objects. 
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.ContainingProject">
+      <summary>
+            Returns the Project that this object is a part of, or null if it is
+            not part of a Project.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.DisplayName"></member>
+    <member name="E:ABB.Robotics.RobotStudio.ProjectObject.DisplayNameChanged"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObject.FindObjects(System.Predicate{ABB.Robotics.RobotStudio.ProjectObject},System.Predicate{ABB.Robotics.RobotStudio.ProjectObject})">
+      <summary>
+            Recursively finds object that satisfy a condition.
+            </summary>
+      <param name="filter">Return true if the object should be returned.</param>
+      <param name="recurse">Return true if the recursion should continue.</param>
+      <returns></returns>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.ProjectObject.InternalEvent">
+      <summary>
+            ABB Internal use
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.Name">
+      <summary>
+            Gets or sets the name of the object
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.Parent">
+      <summary>
+            Returns the objects parent, if it has one.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.ProjectObject.ProjectObjectChanged">
+      <summary>
+            Occurs when the ProjectObject is changed
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObject.ToString"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.TypeDisplayName"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.UIVisible"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObject.UniqueId"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:ABB.Robotics.RobotStudio.ProjectObject.ProjectObjectChanged" /> event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs.ChangedObject"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs.ChangeType"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs.Equals(System.Object)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs.GetHashCode"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectChangedEventHandler">
+      <summary>
+            Represents the method that will handle the <b>ProjectObjectChanged</b>event of a <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" />.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A <see cref="T:ABB.Robotics.RobotStudio.ProjectObjectChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectChangeType">
+      <summary>
+            Specifies in which way a project object has changed.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Children"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Parent"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Transform"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Name"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Other"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.Any"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.UndoRedo"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectObjectChangeType.UIVisible"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectCollection">
+      <summary>
+            Represents a collection of ProjectObjects
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.Add(ABB.Robotics.RobotStudio.ProjectObject)">
+      <summary>
+            Appends the specified <b>ProjectObject</b> to this collection.
+            </summary>
+      <param name="projectObject">The <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" /> object to append to this collection.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.Contains(ABB.Robotics.RobotStudio.ProjectObject)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+            Copies all of the <b>ProjectObjects</b> in this collection to the specified array, starting at the specified index of the target array.
+            </summary>
+      <param name="targetArray">The array of <cee cref="T:ABB.Robotics.RobotStudio.ProjectObject" /> that recieves the elements of the collection.</param>
+      <param name="index">The zero-based index in the target array where this method starts copying this collection.</param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectCollection.Count"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.GetEnumerator"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectCollection.IsSynchronized"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectCollection.Item(System.Int32)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.Remove(ABB.Robotics.RobotStudio.ProjectObject)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectCollection.SyncRoot"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectObjectCollection.ToArray"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventArgs">
+      <summary>
+            Provides data for events of type <see cref="T:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventHandler" />.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventArgs.NewValue">
+      <summary>
+            Gets the new property value.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventArgs.OldValue">
+      <summary>
+            Gets the old property value.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventHandler">
+      <summary>
+            Represents the method that will handle the <see cref="T:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventArgs" /> event.
+            </summary>
+      <param name="sender">The source of the event.</param>
+      <param name="e">A <see cref="T:ABB.Robotics.RobotStudio.ProjectObjectPropertyChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectRemovedEventArgs">
+      <summary>
+            Provides data for the <see cref="!:ABB::Robotics::RobotStudio::Project::ProjectObjectRemoved" /> event of the <see cref="P:ABB.Robotics.RobotStudio.ProjectObjectRemovedEventArgs.Project" />.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectRemovedEventArgs.Project">
+      <summary>
+            Gets the <b>Project</b> from which to object was removed.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectObjectRemovedEventArgs.RemovedObject">
+      <summary>
+            Gets the object that has been removed.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectObjectRemovedEventHandler">
+      <summary>
+            Represents the method that will handle the <b>ProjectObjectRemoved</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectSelection">
+      <summary>
+            Represents a collection of all selected objects in a project.
+            Selection is a concept used from the user interface. Typically it is used to specify for which objects to perform an action, to view information for specific objects and to show which operations that are availble for specific objects.
+            The most common way for a user to select an object is to click with the mouse in the graphic view or in a browser.
+            Using this object you can programatically control which objects that are selected and get notified when selection has changed.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.Add(System.Object)">
+      <summary>
+            Adds an object to the Project's selection
+            </summary>
+      <param name="obj">The <see cref="T:System.Object" /> to add to the <see cref="T:ABB.Robotics.RobotStudio.ProjectSelection" /> object.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.Add(System.Object,ABB.Robotics.RobotStudio.SelectionReason)">
+      <summary>
+            Adds an object to the Project's selection, also specifying why the object was selected
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.AddRange(System.Collections.Generic.IEnumerable{System.Object})">
+      <summary>
+            Adds a range of objects to the Project's selection
+            </summary>
+      <param name="selections">The <see cref="T:System.Collections.IEnumerator" /> to add to the <see cref="T:ABB.Robotics.RobotStudio.ProjectSelection" /> objects.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.Clear">
+      <summary>
+            Clears the Project's selection
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.Contains(System.Object)">
+      <summary>
+            Determines whether the object is currently selected.
+            </summary>
+      <param name="obj">The object to locate in the <see cref="T:ABB.Robotics.RobotStudio.ProjectSelection" /> object.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.CopyTo(System.Array,System.Int32)">
+      <summary>
+            Copies all of the objects in this collection to the specified array, starting at the specified index of the target array.
+            </summary>
+      <param name="targetArray">The array of <cee cref="T:System.Object" /> that recieves the elements of the collection.</param>
+      <param name="index">The zero-based index in the target array where this method starts copying this collection.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.CopyTo(System.Object[],System.Int32)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectSelection.Count">
+      <summary>
+            Returns the number of selected objects.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.GetEnumerator"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.GetTypes">
+      <summary>
+            Returns an array containing the types of all selected objects.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectSelection.IsSynchronized"></member>
+    <member name="E:ABB.Robotics.RobotStudio.ProjectSelection.ObjectAdded">
+      <summary>
+            Occurs when an object has been added to the collection of selected objects.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.ProjectSelection.ObjectRemoved">
+      <summary>
+            Occurs when an object has been removed from the collection of selected objects.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.Remove(System.Object)">
+      <summary>
+            Removes an object from the Project's selection
+            </summary>
+      <param name="obj">The <see cref="T:System.Object" /> to remove from the <see cref="T:ABB.Robotics.RobotStudio.ProjectSelection" /> object.</param>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectSelection.SingleSelectedObject">
+      <summary>
+            If a single object is selected, that object is returned, otherwise null.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ProjectSelection.SyncRoot"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ProjectSelection.ToArray">
+      <summary>
+            Returns an array containing all selected objects.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ProjectType"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectType.Station"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectType.Library"></member>
+    <member name="F:ABB.Robotics.RobotStudio.ProjectType.Unknown"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity">
+      <summary>
+            Represents a SI quantity such as length, time, area etc.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Acceleration">
+      <summary>
+            Gets the builtin quantity representing acceleration.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.ActiveMeasuringUnit">
+      <summary>
+            Gets or sets the MeasuringUnit that is currently active on this Quantity.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.Quantity.ActiveMeasuringUnitChanged">
+      <summary>This event is fired when the active measuring unit of this quantity has changed.</summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Angle">
+      <summary>
+            Gets the builtin Quantity Angle.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.AngularAcceleration">
+      <summary>
+            Gets the builtin quantity representing angular acceleration.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.AngularVelocity">
+      <summary>
+            Gets the builtin quantity representing angular velocity.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Area">
+      <summary>
+            Gets the builtin quantity representing area.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.DisplayName">
+      <summary>
+            Gets the identifier string of the Quantity.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Energy">
+      <summary>
+            Gets the builtin quantity representing energy.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Quantity.GetBuiltinQuantity(ABB.Robotics.RobotStudio.BuiltinQuantity)">
+      <summary>
+            Returns the Quantity corresponding to an element of the BuiltinQuantity enumeration.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Inertia">
+      <summary>
+            Gets the builtin quantity representing inertia.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Length">
+      <summary>
+            Gets the builtin Quantity Length.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Mass">
+      <summary>
+            Gets the builtin quantity representing mass.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.MeasuringUnits">
+      <summary>
+            Gets a MeasuringUnitCollection object that represents all the measuring units that
+            belongs to this Quantity.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Name">
+      <summary>
+            Gets the identifier string of the Quantity.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.None">
+      <summary>
+            Gets the builtin Quantity None.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Power">
+      <summary>
+            Gets the builtin quantity representing power.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Time">
+      <summary>
+            Gets the builtin Quantity Time.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Quantity.ToString"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Velocity">
+      <summary>
+            Gets the builtin quantity representing velocity.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Quantity.Volume">
+      <summary>
+            Gets the builtin quantity representing volume.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.AccelerationUnit">
+      <summary>
+            Specifies a unit of the quantity Acceleration
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AccelerationUnit.MeterPerSecond2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AccelerationUnit.MillimeterPerSecond2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AccelerationUnit.InchPerSecond2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AccelerationUnit.FeetPerSecond2"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.AngleUnit">
+      <summary>
+            Specifies a unit of the quantity Angle
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngleUnit.Degree"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngleUnit.Radian"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.AngularAccelerationUnit">
+      <summary>
+            Specifies a unit of the quantity AngularAcceleration
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngularAccelerationUnit.DegreePerSecond2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngularAccelerationUnit.RadianPerSecond2"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.AngularVelocityUnit">
+      <summary>
+            Specifies a unit of the quantity AngularVelocity
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngularVelocityUnit.DegreePerSecond"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AngularVelocityUnit.RadianPerSecond"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.AreaUnit">
+      <summary>
+            Specifies a unit of the quantity Area
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AreaUnit.Meter2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AreaUnit.Millimeter2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AreaUnit.Inch2"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.AreaUnit.Feet2"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.EnergyUnit">
+      <summary>
+            Specifies a unit of the quantity Energy
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.EnergyUnit.Joule"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.InertiaUnit">
+      <summary>
+            Specifies a unit of the quantity Inertia
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.InertiaUnit.Kgmeter2"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.LengthUnit">
+      <summary>
+            Specifies a unit of the quantity Length
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.LengthUnit.Meter"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.LengthUnit.Millimeter"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.LengthUnit.Inch"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.LengthUnit.Feet"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.MassUnit">
+      <summary>
+            Specifies a unit of the quantity Mass
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.MassUnit.Kg"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.NoneUnit">
+      <summary>
+            Specifies a unit of the quantity None
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.NoneUnit.None"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.PowerUnit">
+      <summary>
+            Specifies a unit of the quantity Power
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.PowerUnit.Watt"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.TimeUnit">
+      <summary>
+            Specifies a unit of the quantity Time
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.TimeUnit.Second"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.VelocityUnit">
+      <summary>
+            Specifies a unit of the quantity Velocity
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VelocityUnit.MeterPerSecond"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VelocityUnit.MillimeterPerSecond"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VelocityUnit.InchPerSecond"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VelocityUnit.FeetPerSecond"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Quantity.VolumeUnit">
+      <summary>
+            Specifies a unit of the quantity Volume
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VolumeUnit.Meter3"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VolumeUnit.Millimeter3"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VolumeUnit.Inch3"></member>
+    <member name="F:ABB.Robotics.RobotStudio.Quantity.VolumeUnit.Feet3"></member>
+    <member name="T:ABB.Robotics.RobotStudio.RecorderState">
+      <summary>
+            Specifies the different states that the <see cref="T:ABB.Robotics.RobotStudio.ScreenRecorder" /> can be in.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.RecorderState.Recording"></member>
+    <member name="F:ABB.Robotics.RobotStudio.RecorderState.Paused"></member>
+    <member name="F:ABB.Robotics.RobotStudio.RecorderState.Stopped"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventArgs">
+      <summary>
+            Provides data for the <see cref="!:Project::ReferencedProjectFileNotFound" /> event
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventArgs.#ctor(ABB.Robotics.RobotStudio.ProjectType,System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventArgs.Cancel"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventArgs.ContainingProjectType"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventArgs.FileName">
+      <summary>
+            Gets the name of the project file that could not be found.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ReferencedProjectFileNotFoundEventHandler">
+      <summary>
+            Represents the method that will handle the <b>ReferencedProjectFileNotFound</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ReferencedProjectFileNotSameEventArgs">
+      <summary>
+            Provides data for the <see cref="!:Project::ReferencedProjectFileNotSame" /> event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotSameEventArgs.Cancel"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotSameEventArgs.ContainingProjectType"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ReferencedProjectFileNotSameEventArgs.FileName">
+      <summary>
+            Gets the name of the project file which is not the same as last time.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ReferencedProjectFileNotSameEventHandler">
+      <summary>
+            Represents the method that will handle the <b>ReferencedProjectFileNotSame</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.RobotStudioAPI">
+      <summary>
+            Intended for internal use only.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.AssertMainThread"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.DataDirectory"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.EnableProjectObjectChangedEvents"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.Initialize"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.Initialize(System.String)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.Initialized"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.InternalLicense"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.MainThread"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.Shutdown"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.Shutdown(System.Boolean)"></member>
+    <member name="E:ABB.Robotics.RobotStudio.RobotStudioAPI.ShuttingDown"></member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioAPI.SkipThreadAffinityChecks(System.Boolean)"></member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.SyncContext">
+      <summary>
+            Represents the synchronization context that most API methods must be called on.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.RobotStudioAPI.SynchronizeInvoke">
+      <summary>
+            Provides a way to execute delegates in the GUI context.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.RobotStudioLicenseException">
+      <summary>
+            This exception is thrown by certain API methods when the license check fails
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.RobotStudioLicenseException.#ctor(System.String)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SavingProjectEventArgs">
+      <summary>
+            Provides data for the <see cref="!:Project::Saving" /> event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.SavingProjectEventArgs.FileName">
+      <summary>
+            Gets the file name of the saving project.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.SavingProjectEventHandler">
+      <summary>
+            Represents the method that will handle the <b>Saving</b> event of the <see cref="T:ABB.Robotics.RobotStudio.Project" />.
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.ScreenRecorder">
+      <summary>
+            Represents a recording device that can record frames from the screen.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.#ctor"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.AddFrame">
+      <summary>
+            Adds a screenshot of the window specified in Start() to the current recording.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.AddFrame(System.Drawing.Bitmap)">
+      <summary>
+            Adds a frame to the output video.
+            The bitmap will be automatically disposed once it has been encoded.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.Compression"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.CurrentTime"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.DroppedFrames"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.Enabled"></member>
+    <member name="E:ABB.Robotics.RobotStudio.ScreenRecorder.EncoderException">
+      <summary>
+            Occurs when the encoding of a video frame fails.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.FileFormat"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.FrameRate"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.GetCompressors(ABB.Robotics.RobotStudio.ScreenRecorderFileFormat)">
+      <summary>
+            Returns information about installed and available compressors (codecs)
+            for a given file format.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.IncludeMouseCursor"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.MaxHeight"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.MaxWidth"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.Pause">
+      <summary>
+            Pause the recording.
+            </summary>
+      <exception cref="T:System.Exception">The screen recorder is not in <see cref="T:ABB.Robotics.RobotStudio.RecorderState" /> Recording.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.Quality"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.Resume">
+      <summary>
+            Resumes a paused recording.
+            </summary>
+      <exception cref="T:System.Exception">The screen recorder is not in <see cref="T:ABB.Robotics.RobotStudio.RecorderState" /> Paused.</exception>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.Start(System.String,System.IntPtr)">
+      <summary>
+            Starts recording the content of window specified by its handle, to the specified file.
+            </summary>
+      <param name="filename">The name of the file where the recorded content is stored. </param>
+      <param name="hWnd">Handle to the windows for which to record content. Use the <see cref="P:System.Windows.Forms.Control.Handle" /> property to get the window handle for a control.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.Start(System.String,System.IntPtr,System.Boolean)">
+      <summary>
+            Starts recording the content of window specified by its handle, to the specified file.
+            </summary>
+      <param name="filename">The name of the file where the recorded content is stored. </param>
+      <param name="hWnd">Handle to the windows for which to record content. Use the <see cref="P:System.Windows.Forms.Control.Handle" /> property to get the window handle for a control.</param>
+      <param name="automatic">True if the system should add frames automatically at the given frame rate, false if not.</param>
+      <exception cref="T:System.Exception">The screen recorder is not enabled.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.StartTime"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.State"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ScreenRecorder.Stop">
+      <summary>
+            Stops a recording in progress.
+            </summary>
+      <exception cref="T:System.Exception">The screen recorder is not in <see cref="T:ABB.Robotics.RobotStudio.RecorderState" /> Stopped.</exception>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.StopTime"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.SynchronizeInvoke"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ScreenRecorder.TotalFrames"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ScreenRecorderFileFormat">
+      <summary>
+            Specifies the different output file formats supported by the <see cref="T:ABB.Robotics.RobotStudio.ScreenRecorder" />.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ScreenRecorderFileFormat.Avi">
+      <summary>
+            This format is no longer supported.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ScreenRecorderFileFormat.Wmv">
+      <summary>
+            Windows Media Video 
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.ScreenRecorderFileFormat.Mp4">
+      <summary>
+            MPEG-4
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.SectionChangedEventArgs">
+      <summary>
+            Provides data for the Options.SectionChanged event
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.SectionChangedEventArgs.Section"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SectionChangedEventHandler"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Selection"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Selection.#ctor"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Selection.SelectedObjects">
+      <summary>
+            Returns the collection containing all selected objects
+            </summary>
+    </member>
+    <member name="T:ABB.Robotics.RobotStudio.SelectionEventArgs">
+      <summary>
+            Provides data for the ProjectSelection.ObjectAdded and ProjectSelection.ObjectRemoved events.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.SelectionEventArgs.Project"></member>
+    <member name="P:ABB.Robotics.RobotStudio.SelectionEventArgs.Reason"></member>
+    <member name="P:ABB.Robotics.RobotStudio.SelectionEventArgs.SelectionObject"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SelectionEventHandler"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SelectionReason">
+      <summary>
+            Reasons for why an object was added to a <see cref="T:ABB.Robotics.RobotStudio.ProjectSelection" />.
+            </summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.SelectionReason.None"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SelectionReason.ObjectCreated"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SelectionReason.Browser"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SelectionReason.Graphics"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SignalDataType">
+      <summary>
+            Specifies the data type of a <see cref="T:ABB.Robotics.RobotStudio.DataRecorderSignal" /></summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalDataType.Unknown"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalDataType.Number"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalDataType.Bit"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalDataType.String"></member>
+    <member name="T:ABB.Robotics.RobotStudio.SignalInterpolationType">
+      <summary>
+            Specifies the type of interpolation for a <see cref="T:ABB.Robotics.RobotStudio.DataRecorderSignal" /></summary>
+    </member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalInterpolationType.None"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalInterpolationType.Continuous"></member>
+    <member name="F:ABB.Robotics.RobotStudio.SignalInterpolationType.Discrete"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Solution">
+      <summary>
+            A solution represents a folder structure with associated projects and documents
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.Solution.ActiveSolutionFolder"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Solution.ActiveSolutionPath"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Solution.ContainingSolutionPath(System.String)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Solution.Create(System.String,System.String)">
+      <summary>
+            Creates a new solution structure in the specified folder
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Solution.IsSolutionFolder(System.String)"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ToolControlServices"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ToolControlServices.CloseActiveToolControl"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ToolControlServices.ShowToolControl(System.Windows.Forms.Control,System.String,System.String[])"></member>
+    <member name="E:ABB.Robotics.RobotStudio.ToolControlServices.TearOff"></member>
+    <member name="M:ABB.Robotics.RobotStudio.ToolControlServices.TearOffActiveToolControl"></member>
+    <member name="T:ABB.Robotics.RobotStudio.ToolControlTearOffEventArgs"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ToolControlTearOffEventArgs.Abort"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ToolControlTearOffEventArgs.NewControl"></member>
+    <member name="P:ABB.Robotics.RobotStudio.ToolControlTearOffEventArgs.SourceControl"></member>
+    <member name="T:ABB.Robotics.RobotStudio.UndoContext">
+      <summary>
+            Gives access to a state based undo mechanism for <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" />s. Each <see cref="T:ABB.Robotics.RobotStudio.Project" /> has its own undo context.
+            The undo context makes it possible to group changes to <see cref="T:ABB.Robotics.RobotStudio.ProjectObject" />s. All changes in the group can then be undone and redone.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.AddChange(ABB.Robotics.RobotStudio.IChange)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.AppendToUndoStep(System.String)">
+      <summary>
+            Similar to <see cref="M:ABB.Robotics.RobotStudio.UndoContext.BeginUndoStep(System.String)" />, but tries to append changes to the previous
+            undo step, instead of creating a new one.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.AppendToUndoStep(System.String,System.Boolean)">
+      <summary>
+            Similar to <see cref="M:ABB.Robotics.RobotStudio.UndoContext.BeginUndoStep(System.String)" />, but tries to append changes to the previous
+            undo step, instead of creating a new one.
+            </summary>
+      <param name="name">Name of undo step, if a new one is created.</param>
+      <param name="forceAppend">If true, changes are appended to the previous undostep (if one exists) even if the names do not match.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.BeginUndoStep">
+      <summary>
+            Starts a new unnamed undo step.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.BeginUndoStep(System.String)">
+      <summary>
+            Begins a new undo step.
+            </summary>
+      <param name="name">The name of the undo step.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.CancelUndoStep(ABB.Robotics.RobotStudio.CancelUndoStepType)">
+      <summary>
+            Marks the current undo step as canceled.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.CanRedo">
+      <summary>
+            Returns true if there are entries in the Redo queue, otherwise false.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.CanUndo">
+      <summary>
+            Returns true if there are entries in the Undo queue, otherwise false.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.Clear">
+      <summary>
+            Clears the Undo and Redo queues.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.CurrentUndoStepName">
+      <summary>
+            Gets or sets the name of the current undo step
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.EndUndoStep">
+      <summary>
+            Ends the current undo step.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.ExecuteUndoStep(System.String,System.Action)">
+      <summary>
+            Creates an undo step and executes the code in the passed in delegate inside it.
+            </summary>
+      <returns>
+            True if the operation succeeded, false if an exception was thrown.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.ExecuteUndoStep(System.String,System.Action,System.Action{System.Exception})">
+      <summary>
+            Creates an undo step and executes the code in the passed in delegate inside it.
+            </summary>
+      <returns>
+            True if the operation succeeded, false if an exception was thrown.
+            </returns>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.GetRedoNames">
+      <summary>
+            Returns an array of the names of all redo steps in the redo queue
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.GetUndoNames">
+      <summary>
+            Returns an array of the names of all undo steps in the undo queue
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.IsAppending">
+      <summary>
+            Returns true if the active undo step has been opened using AppendToUndoStep()
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.IsInUndoStep">
+      <summary>
+            Returns true if the application is currently inside an undo step.
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.NumRedoSteps">
+      <summary>
+            Returns the number of available Redo steps
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.NumUndoSteps">
+      <summary>
+            Returns the number of available Undo steps
+            </summary>
+    </member>
+    <member name="P:ABB.Robotics.RobotStudio.UndoContext.QueueSize">
+      <summary>
+            Gets or sets the maximum size for the Undo and Redo queues.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.Redo">
+      <summary>
+            Redoes the changes undone by the last call to Undo()
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.UndoContext.Redoing"></member>
+    <member name="E:ABB.Robotics.RobotStudio.UndoContext.Redone"></member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.ResumeUndoStep">
+      <summary>
+            Resumes collection of undoable changes.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.SuspendUndoStep">
+      <summary>
+            Temporarily disables collection of undoable changes.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.UndoContext.Undo">
+      <summary>
+            Undoes the operations made during the last undo step.
+            </summary>
+    </member>
+    <member name="E:ABB.Robotics.RobotStudio.UndoContext.Undoing"></member>
+    <member name="E:ABB.Robotics.RobotStudio.UndoContext.Undone"></member>
+    <member name="T:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger">
+      <summary>
+            Contains methods to add information to the internal application log,
+            which can be used by support personnel to determine the cause of an application error.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.#ctor"></member>
+    <member name="P:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.CurrentLogFile">
+      <summary>
+            Returns the location of the log file for the current session.
+            </summary>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogError(System.String)">
+      <summary>
+            Adds an error message and flushes the log to disk.
+            </summary>
+      <param name="message">Message to add</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogException(System.Exception)">
+      <summary>
+            Adds an exception error message and flushes the log to disk. Also adds the message to the Logger.
+            </summary>
+      <param name="ex">Exception</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogException(System.Exception,System.Boolean)">
+      <summary>
+            Adds an exception error message and flushes the log to disk.
+            </summary>
+      <param name="ex">Exception</param>
+      <param name="toOutput">True to also add a message to the Logger</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogException(System.String,System.Exception)">
+      <summary>
+            Adds an exception error message and flushes the log to disk.
+            </summary>
+      <param name="message">Message</param>
+      <param name="ex">Exception</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogException(System.String,System.Exception,System.Boolean)">
+      <summary>
+            Adds an exception error message and flushes the log to disk.
+            </summary>
+      <param name="message">Message</param>
+      <param name="ex">Exception</param>
+      <param name="toOutput">True to also add a message to the Logger</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogExceptionOnce(System.Exception,System.Boolean)"></member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogExceptionOnce(System.String,System.Exception,System.Boolean)">
+      <summary>
+            Adds an exception error message and flushes the log to disk, unless an equivalent
+            exception has already been logged.
+            </summary>
+      <param name="message">Message</param>
+      <param name="ex">Exception</param>
+      <param name="toOutput">True to also add a message to the Logger</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogInfo(System.String)">
+      <summary>
+            Adds a general message to the log.
+            </summary>
+      <param name="message">Message to add</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogState(System.String,System.String)">
+      <summary>
+            Sets a named state in the log.
+            </summary>
+      <param name="state">State to set</param>
+      <param name="message">Message regarding the state, or empty string to clear the state.</param>
+    </member>
+    <member name="M:ABB.Robotics.RobotStudio.Diagnostics.ApplicationLogger.LogThread(System.String,System.Boolean)">
+      <summary>
+            Adds a message when a thread starts or ends.
+            </summary>
+      <param name="thread">Name of the thread</param>
+      <param name="start">Indicates if the thread is starting (true) or ending (false)</param>
+    </member>
+  </members>
+</doc>
